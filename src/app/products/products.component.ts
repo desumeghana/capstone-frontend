@@ -36,6 +36,7 @@ export class ProductsComponent {
     })
   }
 
+  
   // ngOnInit(){
   //   this.productService.eventFromHomeComponentValue.subscribe(value=>{
   //    this.productService.getProductsByCategory(value).subscribe(
@@ -90,6 +91,7 @@ export class ProductsComponent {
   }
 
   buy(productId:string){
+    console.log("get")
     this.addToCart(productId);
     this.router.navigate(['/cart']);
   }
