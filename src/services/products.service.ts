@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
+
 export class ProductsService {
   private apiUrl = "https://capstone-backend-production-e275.up.railway.app/products";
   constructor(private http: HttpClient) { }
