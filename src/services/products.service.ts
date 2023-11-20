@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ProductsService {
-  private apiUrl = "http://localhost:8080/products";
+  private apiUrl = "https://capstone-backend-production-e275.up.railway.app/products";
   constructor(private http: HttpClient) { }
   getAllProducts(){
     return this.http.get<Product>(this.apiUrl);

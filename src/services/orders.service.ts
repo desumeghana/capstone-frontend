@@ -5,7 +5,7 @@ import { HttpClient} from '@angular/common/http';
   providedIn: 'root'
 })
 export class OrdersService {
-  private apiUrl = "http://localhost:8080/orders";
+  private apiUrl = "https://capstone-backend-production-e275.up.railway.app/orders";
   constructor(private http:HttpClient) { 
     
   }

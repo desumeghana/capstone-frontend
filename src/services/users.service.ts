@@ -7,8 +7,8 @@ import { catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class UsersService {
-  private apiUrl = "http://localhost:8080/users";
-  private url = "http://localhost:8080/users/login";
+  private apiUrl = "https://capstone-backend-production-e275.up.railway.app/users";
+  private url = "https://capstone-backend-production-e275.up.railway.app/users/login";
   constructor(private http: HttpClient) {
   }
   getAllUsers() {
