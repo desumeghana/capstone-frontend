@@ -1,0 +1,38 @@
+<div class="d-flex flex-wrap gap-3 m-3" [formGroup]="formData">
+    <mat-form-field>
+      <mat-label>Product Title</mat-label>
+      <input matInput placeholder="" search formControlName="title">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>imageUrl</mat-label>
+      <input matInput placeholder="" search formControlName="imageUrl">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Price</mat-label>
+        <input type="number" matInput placeholder="" search formControlName="price">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Product description</mat-label>
+        <input matInput placeholder="" search formControlName="description">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Quantity</mat-label>
+        <input type="number" matInput placeholder="" search formControlName="quantity">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Category</mat-label>
+        <mat-select #fontSize value="16px" formControlName="category">
+          <mat-option value="mobile">mobile</mat-option>
+          <mat-option value="tablet">tablet</mat-option>
+          <mat-option value="laptop">laptop</mat-option>
+          <mat-option value="smart watch">smart watch</mat-option>
+          <mat-option value="Ear pods">Ear pods</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <button class="btn btn-primary d-block mx-auto" [disabled]="!formData.valid" (click)="add()">Add Product</button>
+</div>
+
+
+
+
+

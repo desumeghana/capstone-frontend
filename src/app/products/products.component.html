@@ -1,0 +1,99 @@
+
+
+<div class="mt-3">
+    <!-- Search and filter -->
+    <div class="d-flex flex-wrap justify-content-around">
+        <div class="shop-header">
+            <h1><b style="color:black">Store.</b>Brighten the season </h1>
+            <h1>with products you love.</h1>
+        </div>
+        <div class="search-bar">
+            <form class="example-form" [formGroup]="formData">
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Search</mat-label>
+                    <mat-icon matPrefix>search</mat-icon>
+                    <input type="search" matInput (keyup)="search()" formControlName="SearchValue">
+                    <!-- <button type="button" matSuffix mat-button class="trigger"
+                        [matMenuTriggerFor]="menu">Select</button> -->
+                </mat-form-field>
+                <!-- <mat-menu #menu="matMenu">
+                    <button mat-menu-item>Item 1</button>
+                    <button mat-menu-item>Item 2</button>
+                </mat-menu> -->
+            </form>
+        </div>
+
+    </div>
+
+    <!-- category carousel -->
+    <div class="d-flex mt-3 justify-content-center gap-2 flex-wrap">
+        <div class="category-1">
+            <div class="card category" (click)="selectCategory(category[0])">
+                <img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/store-card-13-mac-nav-202310?wid=400&hei=260&fmt=png-alpha&.v=1696964122666"
+                    alt="">
+                <p class="text-center">Laptops</p>
+            </div>
+        </div>
+        <div class="category-2">
+            <div class="card category" (click)="selectCategory(category[1])">
+                <img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/store-card-13-iphone-nav-202309_GEO_EMEA?wid=400&hei=260&fmt=png-alpha&.v=1692971740071"
+                    alt="">
+                <p class="text-center">Mobiles</p>
+            </div>
+        </div>
+        <div class="category-3">
+            <div class="card category" (click)="selectCategory(category[2])">
+                <img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/store-card-13-ipad-nav-202210?wid=400&hei=260&fmt=png-alpha&.v=1664912135437"
+                    alt="">
+                <p class="text-center">Tablets & ipad</p>
+            </div>
+        </div>
+        <div class="category-4 " (click)="selectCategory(category[3])">
+            <div class="card category">
+                <img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/store-card-13-watch-nav-202309_GEO_IN?wid=400&hei=260&fmt=png-alpha&.v=1693703814407"
+                    alt="">
+                <p class="text-center">Smart watches</p>
+            </div>
+        </div>
+        <div class="category-5">
+            <div class="card category" (click)="selectCategory(category[4])">
+                <img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/store-card-13-airpods-nav-202209?wid=400&hei=260&fmt=png-alpha&.v=1660676485885"
+                    alt="">
+                <p class="text-center">Ear pods</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="container-fluid d-flex justify-content-center  flex-wrap gap-2">
+    <div class="justify-content-between" *ngFor="let product of products">
+        <div class="card" *ngIf="product.available==1">
+            <div class="card-top">
+                <img class="card-img-top"  (click)="view(product.productId)" src="{{product.images[0]}}" alt="Card image cap">
+            </div>
+            <div class="card-body d-flex flex-column gap-2">
+                <div>
+                    <p class="fw-bold fs-5">{{product.title}}</p>
+                    <p class="">MRP ₹{{product.price}} (Incl. of all taxes)</p>
+                </div>
+                <div class="d-flex justify-content-between">
+                    <div *ngIf="product.rating!=null" class="d-flex rating">
+                        <span [ngClass]="product.rating.rate>= 1 ? 'fas fa-star checked' : 'fas fa-star'"></span>
+                        <span [ngClass]="product.rating.rate >= 2 ? 'fas fa-star checked' : 'fas fa-star'"></span>
+                        <span [ngClass]="product.rating.rate >= 3 ? 'fas fa-star checked' : 'fas fa-star'"></span>
+                        <span [ngClass]="product.rating.rate >= 4 ? 'fas fa-star checked' : 'fas fa-star'"></span>
+                        <span [ngClass]="product.rating.rate >= 5 ? 'fas fa-star checked' : 'fas fa-star'"></span>
+                    </div>
+                    <div>
+                        <mat-icon (click)="addToCart(product.productId)">add_shopping_cart</mat-icon>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <button class="btn btn-dark btn-sm" style="border-radius:25px;" (click)="buy(product.productId)" >Buy</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

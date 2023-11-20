@@ -1,0 +1,41 @@
+.horizontalCard,
+.card {
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 2px 4px 12px rgba(0, 0, 0, .08);
+    border-radius: 18px;
+    transition: all .3s cubic-bezier(0, 0, .5, 1);
+    box-sizing: border-box;
+    padding: 20px;
+}
+
+.horizontalCard:hover,
+.card:hover {
+    transform: scale(1.01);
+}
+
+.mat-icon:hover {
+    transform: scale(1.2);
+    box-shadow: 2px 4px 12px rgba(0, 0, 0, .08);
+}
+
+.btn:hover {
+    transform: scale(1.3);
+}
+
+.btn-dark {
+    border-radius: 20px;
+    border-color: #ddd;
+    font-size:16px;
+    text-align: center;
+    opacity: inherit;
+}
+
+@media only screen and (max-width: 850px) {
+    .cartCards {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+}

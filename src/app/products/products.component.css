@@ -1,0 +1,39 @@
+.card{
+    width:16.41176rem;
+    background-color: #fff;
+    box-shadow: 2px 4px 12px rgba(0,0,0,.08);
+    border-radius: 18px;
+    transition: all .3s cubic-bezier(0,0,.5,1);
+    box-sizing: border-box;
+    padding:20px;
+}
+.card:hover{
+    transform: scale(1.03);
+}
+.checked {
+    color: orange;
+}
+.mat-icon:hover{
+    transform: scale(1.2);
+}
+.btn:hover{
+    transform: scale(1.3);
+}
+
+
+.category {
+    width: 10rem;
+    background-color: #fff;
+    box-shadow: 2px 4px 12px rgba(0, 0, 0, .08);
+    border-radius: 18px;
+    transition: all .3s cubic-bezier(0, 0, .5, 1);
+    box-sizing: border-box;
+    padding: 20px;
+  }
+  
+  
+  .card:hover {
+    transform: scale(1.03);
+  }
+
+

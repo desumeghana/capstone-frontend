@@ -1,0 +1,106 @@
+
+<!-- when cart is empty -->
+<div class="container mt-4 d-flex" style="margin-bottom: 30%;" *ngIf="products.length===0">
+    <div class="text-center col-lg-7 " style="box-sizing: border-box;">
+        <h1>Your cart is empty</h1>
+        <button class="btn btn-outline-dark btn-lg" routerLink="/products">Continue shopping</button>
+    </div>
+     <!-- price card -->
+     <div class="col-lg-5 p-2">
+        <div class="card border p-3">
+             <div class="card-top">
+                 <div class="d-flex justify-content-between px-2" >
+                     <h1 class="">Total</h1>
+                     <h1>MRP ₹ {{TotalPrice}}.00</h1>
+                 </div>
+                 <div>Includes GST*</div>
+                 <hr>
+             </div>
+             <div class="card-bottom">
+                 <!-- pricing details -->
+                 <div class="pricing-detail">
+                     <div class="d-flex justify-content-between px-2">
+                         <p>Price(Inclusive of all tax..</p>
+                         <p> ₹ {{price}}.00</p>
+                     </div>
+                     <div class="d-flex justify-content-between px-2">
+                         <p>Discount</p>
+                         <p> - ₹ 0.00</p>
+                     </div>
+                     <div class="d-flex justify-content-between px-2">
+                         <p>Shipping Charges</p>
+                         <p> ₹ {{shippingCharges}}.00</p>
+                     </div>
+                 </div>
+                 <!-- checkout button -->
+                 <div class="d-flex justify-content-center">
+                     <button class="btn btn-dark px-5 py-2">Pay Now</button>
+                 </div>
+             </div>
+        </div>
+     </div>
+</div>
+
+
+<!-- when cart items are present -->
+<div class="d-flex justify-content-center  mt-4" *ngIf="cart.length>0" style="margin-bottom: 30%;">
+    <!-- retrieving products from the cart and displaying them  -->
+    <div class="col-lg-7 p-2">
+        <div class="horizontalCard border" *ngFor="let product of products">
+            <div class="d-flex justify-content-between flex-wrap cartCards" >
+                <div class="" style="width:12rem">
+                    <img class="card-img"routerLink="/products/{{product.productId}}" src="{{product.images[0]}}" alt="Card image cap">
+                </div>
+                <div class="d-flex flex-column gap-2 m-3">
+                    <p class="fw-bold fs-5">{{product.title}}</p>
+                    <p class="">MRP ₹{{product.price}} (Incl. of all taxes)</p>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text bg-dark" style="color:snow"
+                            (click)="subtractQuantity(product.productId)">-</span>
+                        <input type="text" class="form-control text-center" value="{{product.quantity}}">
+                        <span class="input-group-text bg-dark" style="color:snow"
+                            (click)="addQuantity(product.productId)">+</span>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-center align-items-center gap-2">
+                    <mat-icon (click)="remove(product.productId)">delete</mat-icon>
+                    <mat-icon (click)="share(product.productId)">share</mat-icon>
+                </div>
+            </div>
+        </div>
+    </div>
+     <!-- price card -->
+     <div class="col-lg-5 p-2">
+        <div class="card border p-3">
+             <div class="card-top">
+                 <div class="d-flex justify-content-between px-2" >
+                     <h1 class="">Total</h1>
+                     <h1>MRP ₹ {{TotalPrice}}.00</h1>
+                 </div>
+                 <div>Includes GST*</div>
+                 <hr>
+             </div>
+             <div class="card-bottom">
+                 <!-- pricing details -->
+                 <div class="pricing-detail">
+                     <div class="d-flex justify-content-between px-2">
+                         <p>Price(Inclusive of all tax..</p>
+                         <p> ₹ {{price}}.00</p>
+                     </div>
+                     <div class="d-flex justify-content-between px-2">
+                         <p>Discount</p>
+                         <p> - ₹ 0.00</p>
+                     </div>
+                     <div class="d-flex justify-content-between px-2">
+                         <p>Shipping Charges</p>
+                         <p> ₹ {{shippingCharges}}.00</p>
+                     </div>
+                 </div>
+                 <!-- checkout button -->
+                 <div class="d-flex justify-content-center">
+                     <button class="btn btn-dark px-5 py-2" (click)="checkout()">Pay Now</button>
+                 </div>
+             </div>
+        </div>
+     </div>
+</div>

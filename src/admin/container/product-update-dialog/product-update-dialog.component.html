@@ -1,0 +1,27 @@
+<div class="d-flex flex-wrap gap-5 m-3" [formGroup]="formData">
+    <mat-form-field>
+      <mat-label>Product Name</mat-label>
+      <input matInput placeholder="" search formControlName="title">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Category</mat-label>
+        <input matInput placeholder="" search formControlName="category">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Price</mat-label>
+        <input type="number" matInput placeholder="" search formControlName="price">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Description</mat-label>
+        <input matInput placeholder="" search formControlName="description">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Discount</mat-label>
+        <input type="number" matInput placeholder="" search formControlName="discount">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Quantity</mat-label>
+        <input type="number" matInput placeholder="" search formControlName="quantity">
+    </mat-form-field>
+</div>
+<button class="btn btn-primary d-block mx-auto " [disabled]="!formData.valid" (click)="updateProduct()">Update</button>

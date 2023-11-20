@@ -1,0 +1,56 @@
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<p>add-address-dialog works!</p>
+<div class="d-flex flex-wrap gap-5 m-3" [formGroup]="formData">
+    <mat-form-field>
+      <mat-label>Shipping Address</mat-label>
+      <input matInput placeholder="" search formControlName="Address">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Mobile Number</mat-label>
+      <input matInput placeholder="" search formControlName="Mobile">
+    </mat-form-field>
+</div>
+<section id="payment" class="mb-5 pb-5 d-flex justify-content-center" >
+ 
+  <button class="btn btn-primary d-block mx-auto" [disabled]="!formData.valid" id="rzp-button1" (click)="add()">Confirm</button>
+
+</section>
+
+
+<script>
+      console.log("hello");
+        var amount = 100;
+
+        var options = {
+            "key": "rzp_test_p6RxCcR8W90wZr", // Enter the Key ID generated from the Dashboard
+            "amount": `${amount * 100}`, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+            "currency": "INR",
+            "name": "Acme Corp", //your business name
+            "description": "Test Transaction",
+            "image": "https://example.com/your_logo",
+            "order_id": "", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+            "callback_url": "/",
+            "prefill": { //We recommend using the prefill parameter to auto-fill customer's contact information especially their phone number
+                "name": "Gaurav Kumar", //your customer's name
+                "email": "gaurav.kumar@example.com",
+                "contact": "9000090000" //Provide the customer's phone number for better conversion rates 
+            },
+            "notes": {
+                "address": "Razorpay Corporate Office"
+            },
+            "theme": {
+                "color": "#3399cc"
+            }
+        };
+        var rzp1 = new Razorpay(options);
+        document.getElementById('rzp-button1').onclick = function(e){
+            let ele = document.getElementById('checkout')
+            console.log(ele)
+            amount = parseInt(ele.textContent)
+            console.log(amount)
+            options.amount = (amount * 100).toString()
+            rzp1 = new Razorpay(options);
+            rzp1.open();
+            e.preventDefault();
+        }
+</script>

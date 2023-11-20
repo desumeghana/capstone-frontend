@@ -1,0 +1,30 @@
+<div>
+    <h2 class="text-center mt-3 fw-bold">Products</h2>
+<div class="d-flex">
+    <table class="table table-striped table-hover border border-secondary">
+        <thead class="thead-dark">
+            <tr class="fw-bold">
+              <th>Id</th>
+              <th>Image</th>
+              <th>ProductName</th>
+              <th>Price</th>
+              <th>Category</th>
+              <th>quantity</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let i of products">
+              <td>{{i.productId}}</td>
+              <td><img src="{{i.images[0]}}"  width="60vw" height="60vh" alt=""></td>
+              <td>{{i.title}}</td>
+              <td>₹{{i.price}}</td>
+              <td>{{i.category}}</td>
+              <td>{{i.quantity}}</td>
+              <td><button class="btn btn-primary" (click)="update(i)">Update</button></td>
+              <td><mat-slide-toggle color="accent" [checked]="i.available==1" (change)="updateAvailabilityStatus($event,i.productId)"></mat-slide-toggle></td>
+            </tr>
+          </tbody>
+      </table>
+</div>
+  <button class="btn btn-lg btn-primary d-block mx-auto rounded-pill" (click)="addProduct()" >Add Product +</button>
+</div>
